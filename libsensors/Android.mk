@@ -24,7 +24,7 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 LOCAL_MODULE_TAGS := optional
 LOCAL_CFLAGS := -DLOG_TAG=\"SensorsHal\" -DPLATFORM_SDK_VERSION=$(PLATFORM_SDK_VERSION)
 
-ifeq ($(filter bq_Maxwell2_QuadCore bq_Curie2_QuadCore_3G,$(TARGET_BOARD_PLATFORM)),)
+ifneq ($(filter bq_Maxwell2_QuadCore bq_Curie2_QuadCore_3G,$(TARGET_BOARD_PLATFORM)),)
 LOCAL_CFLAGS += -DAKM_SUPPORT
 LOCAL_SRC_FILES := AkmSensor.cpp
 endif
